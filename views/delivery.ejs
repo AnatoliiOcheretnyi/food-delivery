@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/style.css">  
+    <link rel="stylesheet" href="../stylesheets/delivery.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="main-overlay">
+            <div class="main">
+                <div class="header">
+                    <div class="logo">
+                        <a class="a" href="/"><img src="images/scientific_research.png" width="50px" height="50px" alt="picture" title="project"><span class="edu">Food Delivery</span></a>
+                    </div>
+                    <div class="burg">
+                        <span class="ite"></span>
+                        <span class="ite"></span>
+                        <span class="ite"></span>
+                        
+                    </div>
+                    <nav class="menu">
+                            <ul>
+                                <li class="menu-item"><a href="/">Головна</a></li>
+                                <li class="menu-item">
+                                        <a href="/delivery">Кухні</a>
+                                        <ul class="sub-menu">
+                                                <li class="sub-menu-item"><a href="/delivery">Французька</a></li>
+                                                <li class="sub-menu-item"><a href="/delivery">Італійська</a></li>
+                                                <li class="sub-menu-item"><a href="/delivery">Українська</a></li>
+                                                <li class="sub-menu-item"><a href="/delivery">Японська</a></li>
+                                        </ul>
+                                    </li>
+                                <li class="menu-item">
+                                        <a href="/gallery">Галерея</a>
+                                </li>
+                                <li class="menu-item">
+                                        <a href="/contact">Контакти</a>
+                                    </li>
+                            </ul>
+                        </nav>
+                        <div class="search">                
+                            <!-- <input type="text" id="search-input">
+                            <button id="search-btn">Пошук</button> -->
+                            <input class="place_for_search" type="text" id="text-to-find" value="" placeholder="Search" autofocus> 
+                            <input class="button_for_turn_back" type="button" onclick="javascript: FindOnPage('text-to-find',false); return false;" value=" " title="Отменить поиск">
+                            <input class="button_for_search" type="submit" onclick="javascript: FindOnPage('text-to-find',true); return false;" value=" " title="Начать поиск">
+                        </div>
+                    <div class="container-counter">0</div> 
+                    <div class="container-cart">
+                        <div class="cart-close"></div>
+                    </div>  
+            </div>
+        </div> 
+    </div>
+    </header>
+  
+    <!-- <div class="filter">
+        <div class="first">
+                <a href="#" class="filterDay"><h2>День тижня</h2></a>
+                <a href="#" class="subdmonday"><p>Понеділок</p></a>
+                <a href="#" class="subdtuesday"><p>Вівторок</p></a>
+                <a href="#" class="subdwednesday"><p>Середа</p></a>
+                <a href="#" class="subdthursday"><p>Четвер</p></a>
+                <a href="#" class="subdfriday"><p>П'ятниця</p></a>
+                <a href="#" class="subdsaturday"><p>Субота</p></a>
+                <a href="#" class="subdsunday"><p>Неділя</p></a>
+        </div>
+        <div class="second">
+                <a href="#" class="filterType"><h2>Тип блюда</h2></a>
+                <a href="#" class="subtfirst"><p>Перша страва</p></a>
+                <a href="#" class="subtsecond"><p>Друга страва</p></a>
+                <a href="#" class="subtsnack"><p>Закуска</p></a>
+                <a href="#" class="subtsushi"><p>Суші</p></a>
+                <a href="#" class="subtpizza"><p>Піца</p></a>
+        </div>
+        <div class="third">
+                <a href="#" class="filterKitchen"><h2>Тип кухні</h2></a>
+                <a href="#" class="subukraine"><p>Українська</p></a>
+                <a href="#" class="subjapan"><p>Японська</p></a>
+                <a href="#" class="subchine"><p>Китайська</p></a>
+                <a href="#" class="subfrance"><p>Французька</p></a>
+                <a href="#" class="subitaly"><p>Італійська</p></a>
+                <a href="#" class="subindia"><p>Індійська</p></a>
+        </div>
+    </div> -->
+
+    <div class="filter">
+        <form onchange="filter(this)">
+            <input type="checkbox" value="1" id="checkbox1" class="hide">
+            <input type="checkbox" value="2" id="checkbox2" class="hide">
+            <input type="checkbox" value="3" id="checkbox3" class="hide">
+            <input type="checkbox" value="4" id="checkbox4" class="hide">
+            <input type="checkbox" value="5" id="checkbox5" class="hide">
+            <input type="checkbox" value="6" id="checkbox6" class="hide">
+            <input type="checkbox" value="7" id="checkbox7" class="hide">
+
+            <input type="checkbox" value="1" id="checkbox8" class="hide">
+            <input type="checkbox" value="2" id="checkbox9" class="hide">
+            <input type="checkbox" value="3" id="checkbox10" class="hide">
+            <input type="checkbox" value="4" id="checkbox11" class="hide">
+            
+            <input type="checkbox" value="1" id="checkbox12" class="hide">
+            <input type="checkbox" value="2" id="checkbox13" class="hide">
+            <input type="checkbox" value="3" id="checkbox14" class="hide">
+            <input type="checkbox" value="4" id="checkbox15" class="hide">
+        </form>
+        <label for="checkbox1">Понеділок</label><br>
+
+        <label for="checkbox2">Вівторок</label><br>
+
+        <label for="checkbox3">Середа</label><br>
+
+        <label for="checkbox4">Четверг</label><br>
+
+        <label for="checkbox5">П'ятниця</label><br>
+
+        <label for="checkbox6">Субота</label><br>
+
+        <label for="checkbox7">Неділя</label><br><br>
+
+        <label for="checkbox8">Італійська</label><br>
+
+        <label for="checkbox9">Українська</label><br>
+
+        <label for="checkbox10">Французька</label><br>
+
+        <label for="checkbox11">Японська</label><br><br>
+
+        <label for="checkbox12">Салати</label><br>
+
+        <label for="checkbox13">Гарячі страви</label><br>
+
+        <label for="checkbox14">Десерти</label><br>
+
+        <label for="checkbox15">Піца</label><br>
+
+        </div>
+
+    <div class="container-products"></div>
+    
+    
+    <footer class="footer">
+        <div class="main">
+            <div class="header for-footer">
+                <div class="logo">
+                    <img src="../images/scientific_research.png" width="50px" height="50px" title="footer logo" alt=""><span class="edu">Food Delivery</span>
+                </div>
+                <div class="foot-menu">
+                    <ul>
+                        <li><a href="/" class="menu-link">Головна</a></li>
+                        <li><a href="/gallery" class="menu-link">Галерея</a></li>
+                        <li><a href="/contact" class="menu-link">Контакти</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="/javascripts/filter.js"></script>
+    <script src="/javascripts/data.js"></script>
+    <script src="/javascripts/productsCreateElement.js"></script>
+    <script src="/javascripts/localStorage.js"></script>
+    <script src="/javascripts/productsCart.js"></script>
+    <script src="/javascripts/search.js"></script>
+    <script src="/javascripts/basketCart.js"></script>
+</body>
+
+</html>

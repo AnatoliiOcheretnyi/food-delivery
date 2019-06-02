@@ -59,55 +59,26 @@
     </div>
     </header>
   
-    <!-- <div class="filter">
-        <div class="first">
-                <a href="#" class="filterDay"><h2>День тижня</h2></a>
-                <a href="#" class="subdmonday"><p>Понеділок</p></a>
-                <a href="#" class="subdtuesday"><p>Вівторок</p></a>
-                <a href="#" class="subdwednesday"><p>Середа</p></a>
-                <a href="#" class="subdthursday"><p>Четвер</p></a>
-                <a href="#" class="subdfriday"><p>П'ятниця</p></a>
-                <a href="#" class="subdsaturday"><p>Субота</p></a>
-                <a href="#" class="subdsunday"><p>Неділя</p></a>
-        </div>
-        <div class="second">
-                <a href="#" class="filterType"><h2>Тип блюда</h2></a>
-                <a href="#" class="subtfirst"><p>Перша страва</p></a>
-                <a href="#" class="subtsecond"><p>Друга страва</p></a>
-                <a href="#" class="subtsnack"><p>Закуска</p></a>
-                <a href="#" class="subtsushi"><p>Суші</p></a>
-                <a href="#" class="subtpizza"><p>Піца</p></a>
-        </div>
-        <div class="third">
-                <a href="#" class="filterKitchen"><h2>Тип кухні</h2></a>
-                <a href="#" class="subukraine"><p>Українська</p></a>
-                <a href="#" class="subjapan"><p>Японська</p></a>
-                <a href="#" class="subchine"><p>Китайська</p></a>
-                <a href="#" class="subfrance"><p>Французька</p></a>
-                <a href="#" class="subitaly"><p>Італійська</p></a>
-                <a href="#" class="subindia"><p>Індійська</p></a>
-        </div>
-    </div> -->
-
     <div class="filter">
-        <form onchange="filter(this)">
-            <input type="checkbox" value="1" id="checkbox1" class="hide">
-            <input type="checkbox" value="2" id="checkbox2" class="hide">
-            <input type="checkbox" value="3" id="checkbox3" class="hide">
-            <input type="checkbox" value="4" id="checkbox4" class="hide">
-            <input type="checkbox" value="5" id="checkbox5" class="hide">
-            <input type="checkbox" value="6" id="checkbox6" class="hide">
-            <input type="checkbox" value="7" id="checkbox7" class="hide">
+        <form method="POST" action="/delivery" name="Filter">
+            <input type="checkbox" value="11" id="checkbox1" name="mon" class="hide">
+            <input type="checkbox" value="12" id="checkbox2" name="tue" class="hide">
+            <input type="checkbox" value="13" id="checkbox3" name="wed" class="hide">
+            <input type="checkbox" value="14" id="checkbox4" name="thu" class="hide">
+            <input type="checkbox" value="15" id="checkbox5" name="fri" class="hide">
+            <input type="checkbox" value="16" id="checkbox6" name="sat" class="hide">
+            <input type="checkbox" value="17" id="checkbox7" name="sun" class="hide">
 
-            <input type="checkbox" value="1" id="checkbox8" class="hide">
-            <input type="checkbox" value="2" id="checkbox9" class="hide">
-            <input type="checkbox" value="3" id="checkbox10" class="hide">
-            <input type="checkbox" value="4" id="checkbox11" class="hide">
+            <input type="checkbox" value="21" id="checkbox8" name="ita" class="hide">
+            <input type="checkbox" value="22" id="checkbox9" name="ukr" class="hide">
+            <input type="checkbox" value="23" id="checkbox10" name="fra" class="hide">
+            <input type="checkbox" value="24" id="checkbox11" name="jap" class="hide">
             
-            <input type="checkbox" value="1" id="checkbox12" class="hide">
-            <input type="checkbox" value="2" id="checkbox13" class="hide">
-            <input type="checkbox" value="3" id="checkbox14" class="hide">
-            <input type="checkbox" value="4" id="checkbox15" class="hide">
+            <input type="checkbox" value="31" id="checkbox12" name="sal" class="hide">
+            <input type="checkbox" value="32" id="checkbox13" name="gar" class="hide">
+            <input type="checkbox" value="33" id="checkbox14" name="des" class="hide">
+            <input type="checkbox" value="34" id="checkbox15" name="piz" class="hide">
+            <input type="button" value="submit" onclick="Filter.submit()">
         </form>
         <label for="checkbox1">Понеділок</label><br>
 
@@ -141,7 +112,10 @@
 
         </div>
 
+        <input type='hidden' id='current_page' />
+<input type='hidden' id='show_per_page' />
     <div class="container-products"></div>
+    <div id='page_navigation'></div>
     
     
     <footer class="footer">
@@ -160,7 +134,7 @@
             </div>
         </div>
     </footer>
-    <script src="/javascripts/filter.js"></script>
+    <script src="/javascripts/pagination.js"></script>
     <script src="/javascripts/data.js"></script>
     <script src="/javascripts/productsCreateElement.js"></script>
     <script src="/javascripts/localStorage.js"></script>

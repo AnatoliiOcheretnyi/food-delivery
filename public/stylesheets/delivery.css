@@ -1,6 +1,6 @@
 .filter{
 	height: 700px;
-	margin-top: 200px;
+	margin-top: 120px;
 	position: fixed;
 	margin-left: 40px;
 }
@@ -39,6 +39,7 @@
 		0 6px 30px 5px rgba(33,37,41,.04), 
 		0 8px 10px -5px rgba(33,37,41,.1);
 }
+
 .name {
 	font-weight: bold;
 	text-transform: uppercase;
@@ -122,3 +123,20 @@
 	background-size: contain;
 	cursor: pointer;
 }
+  #page_navigation {
+	clear:both;
+	margin: 20px 0;
+	margin-left: 750px;
+  }
+  #page_navigation a{
+	  padding:13px 16px;
+	  border:1px solid #2e6da4;
+	  margin:2px;
+	  color:black;
+		text-decoration:none;
+		
+  }
+  .active_page{
+	  background:#337ab7;
+	  color:white;
+  }

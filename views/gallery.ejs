@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheets/style.css"> 
+    <link rel="stylesheet" href="../stylesheets/gallery.css"> 
+    <link rel="stylesheet" href="../stylesheets/delivery.css">   
+  </head>
+  <body>
+    <header>
+      <div class="mainOverlay">
+        <div class="main">
+          <div class="header">
+            <div class="logo">
+              <a class="a" href="/"><img src="images/scientific_research.png" width="50px" height="50px" alt="picture" title="project"><span class="nameFD">Food Delivery</span></a>
+            </div>
+            <div class="burg">
+              <span class="ite"></span>
+              <span class="ite"></span>
+              <span class="ite"></span>     
+            </div>
+            <nav class="menu">
+              <ul>
+                <li class="menuItem"><a href="/">Головна</a></li>
+                <li class="menuItem"><a href="/delivery">Кухні</a>
+                  <ul class="subMenu">
+                    <li class="subMenuItem"><a href="pages/dishes.html">Французька</a></li>
+                    <li class="subMenuItem"><a href="pages/dishes.html">Італійська</a></li>
+                    <li class="subMenuItem"><a href="pages/dishes.html">Українська</a></li>
+                    <li class="subMenuItem"><a href="pages/dishes.html">Японська</a></li>
+                  </ul>
+                </li>
+                <li class="menuItem"><a href="/gallery">Галерея</a></li>
+                <li class="menuItem"><a href="/contact">Контакти</a></li>
+              </ul>
+            </nav>
+              <div class="search">                
+                <input class="placeForSearch" type="text" id="textToFind" value="" placeholder="Search" autofocus> 
+                <input class="buttonForTurnBack" type="button" onclick="javascript: FindOnPage('textToFind',false); return false;" value=" " title="Отменить поиск">
+                <input class="buttonForSearch" type="submit" onclick="javascript: FindOnPage('textToFind',true); return false;" value=" " title="Начать поиск">
+              </div>
+                <div class="containerCounter">0</div> 
+                <div class="containerCart containerComplex">
+                  <div class="cartClose"></div>
+                </div>  
+          </div>
+        </div> 
+      </div>
+    </header>
+    <section>
+      <h2 style="text-align:center">Галерея</h2>
+      <div class="container">
+        <div class="mySlides">
+          <img src="../images/slide1.jpg" style="width: 33%;">
+        </div>
+        <div class="mySlides">
+          <img src="../images/slide2.jpg" style="width:33%">
+        </div>
+        <div class="mySlides">
+          <img src="../images/slide3.jpg" style="width:33%">
+        </div> 
+        <div class="mySlides">
+          <img src="../images/slide4.jpg" style="width:33%">
+        </div>
+        <div class="mySlides">
+          <img src="../images/slide5.jpg" style="width:33%">
+        </div> 
+        <div class="mySlides">
+          <img src="../images/slide6.jpg" style="width:33%">
+        </div>
+        <div class="mySlides">
+          <img src="../images/slide1.jpg" style="width: 33%;">
+        </div>
+        <div class="mySlides">
+          <img src="../images/slide2.jpg" style="width:33%">
+        </div>
+        <div class="mySlides">
+          <img src="../images/slide3.jpg" style="width:33%">
+        </div>     
+        <div class="mySlides">
+         <img src="../images/slide4.jpg" style="width:33%">
+        </div>    
+        <div class="mySlides">
+          <img src="../images/slide5.jpg" style="width:33%">
+        </div>        
+        <div class="mySlides">
+           <img src="../images/slide6.jpg" style="width:33%">
+         </div>        
+        <a class="prev" onclick="minusSlides()">&#10094;</a>
+        <a class="next" onclick="plusSlides()">&#10095;</a>  
+        <div class="captionContainer">
+          <p id="caption"></p>
+         </div>    
+        <div class="row">
+        <div class="column">
+          <img class="demo cursor" src="../images/slide1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Українська кухня">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="../images/slide2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Італійська кухня">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="../images/slide3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Французька кухня">
+        </div>
+        <div class="column">
+          <img class="demo cursor" src="../images/slide4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Японська кухня">
+       </div>
+       <div class="column">
+       <img class="demo cursor" src="../images/slide5.jpg" style="width:100%" onclick="currentSlide(5)" alt="Китайська кухня">
+      </div>    
+      <div class="column">
+        <img class="demo cursor" src="../images/slide6.jpg" style="width:100%" onclick="currentSlide(6)" alt="Індійська кухня">
+       </div>
+       <div class="column">
+        <img class="demo cursor" src="../images/slide1.jpg" style="width:100%" onclick="currentSlide(1)" alt="Українська кухня">
+       </div>
+       <div class="column">
+        <img class="demo cursor" src="../images/slide2.jpg" style="width:100%" onclick="currentSlide(2)" alt="Італійська кухня">
+        </div>
+        <div class="column">
+         <img class="demo cursor" src="../images/slide3.jpg" style="width:100%" onclick="currentSlide(3)" alt="Французька кухня">
+        </div>
+        <div class="column">
+         <img class="demo cursor" src="../images/slide4.jpg" style="width:100%" onclick="currentSlide(4)" alt="Японська кухня">
+         </div>
+         <div class="column">
+          <img class="demo cursor" src="../images/slide5.jpg" style="width:100%" onclick="currentSlide(5)" alt="Китайська кухня">
+        </div>    
+        <div class="column">
+          <img class="demo cursor" src="../images/slide6.jpg" style="width:100%" onclick="currentSlide(6)" alt="Індійська кухня">
+        </div>
+        </div>
+        </div>
+    </section>
+    <footer class="footer">
+      <div class="main">
+          <div class="header for-footer">
+            <div class="logo">
+              <img src="images/scientific_research.png" width="50px" height="50px" title="footer logo" alt=""><span class="nameFD">Food Delivery</span>
+            </div>
+          </div>
+      </div>
+    </footer>
+  </body>
+  <script src="/javascripts/gallery.js"></script>
+  <script src="/javascripts/data.js"></script>
+  <script src="/javascripts/productsCreateElement.js"></script>
+  <script src="/javascripts/localStorage.js"></script>
+  <script src="/javascripts/productsCart.js"></script>
+  <script src="/javascripts/complex.js"></script>
+  <script src="/javascripts/search.js"></script>
+  <script src="/javascripts/complexInBasket.js"></script>
+  <script src="/javascripts/basketCart.js"></script>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="../stylesheets/style.css">  
+        <link rel="stylesheet" href="../stylesheets/delivery.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="mainOverlay">
+                <div class="main">
+                    <div class="header">
+                    <div class="logo">
+                        <a class="a" href="/"><img src="images/scientific_research.png" width="50px" height="50px" alt="picture" title="project"><span class="nameFD">Food Delivery</span></a>
+                    </div>
+                    <div class="burg">
+                        <span class="ite"></span>
+                        <span class="ite"></span>
+                        <span class="ite"></span>
+                    </div>
+                    <nav class="menu">
+                        <ul>
+                            <li class="menuItem"><a href="/">Головна</a></li>
+                            <li class="menuItem"><a href="/delivery">Кухні</a>
+                                <ul class="subMenu">
+                                    <li class="subMenuItem"><a href="pages/dishes.html">Французька</a></li>
+                                    <li class="subMenuItem"><a href="pages/dishes.html">Італійська</a></li>
+                                    <li class="subMenuItem"><a href="pages/dishes.html">Українська</a></li>
+                                    <li class="subMenuItem"><a href="pages/dishes.html">Японська</a></li>
+                                </ul>
+                            </li>
+                            <li class="menuItem"><a href="/gallery">Галерея</a></li>
+                            <li class="menuItem"><a href="/contact">Контакти</a></li>
+                        </ul>
+                    </nav>
+                    <div class="search">                
+                        <input class="placeForSearch" type="text" id="textToFind" value="" placeholder="Search" autofocus> 
+                        <input class="buttonForTurnBack" type="button" onclick="javascript: FindOnPage('textToFind',false); return false;" value=" " title="Отменить поиск">
+                        <input class="buttonForSearch" type="submit" onclick="javascript: FindOnPage('textToFind',true); return false;" value=" " title="Начать поиск">
+                    </div>
+                    <div class="containerCounter">0</div> 
+                    <div class="containerCart containerComplex">
+                        <div class="cartClose"></div>
+                    </div>  
+                    </div>
+                </div> 
+            </div>
+        </header>
+        <section>
+            <div class="filter">
+                <form name="Filter" action="#">
+                    <input type="checkbox"id="11"  name="mon" class="filterCheckbox hide">
+                    <input type="checkbox"id="12"  name="tue" class="filterCheckbox hide">
+                    <input type="checkbox"id="13"  name="wed" class="filterCheckbox hide">
+                    <input type="checkbox"id="14"  name="thu" class="filterCheckbox hide">
+                    <input type="checkbox"id="15"  name="fri" class="filterCheckbox hide">
+                    <input type="checkbox"id="16"  name="sat" class="filterCheckbox hide">
+                    <input type="checkbox"id="17"  name="sun" class="filterCheckbox hide">
+            
+                    <input type="checkbox"id="21"  name="ita" class="filterCheckbox hide">
+                    <input type="checkbox"id="22"  name="ukr" class="filterCheckbox hide">
+                    <input type="checkbox"id="23"  name="fra" class="filterCheckbox hide">
+                    <input type="checkbox"id="24"  name="jap" class="filterCheckbox hide">
+                            
+                    <input type="checkbox"id="31"  name="sal" class="filterCheckbox hide">
+                    <input type="checkbox"id="32"  name="gar" class="filterCheckbox hide">
+                    <input type="checkbox"id="33"  name="des" class="filterCheckbox hide">
+                    <input type="checkbox"id="34"  name="piz" class="filterCheckbox hide">
+                    <input type="button" value="submit" onclick="send()">
+                    </form>
+                    <label for="checkbox1">Понеділок</label><br>
+                    <label for="checkbox2">Вівторок</label><br>
+                    <label for="checkbox3">Середа</label><br>
+                    <label for="checkbox4">Четверг</label><br>
+                    <label for="checkbox5">П'ятниця</label><br>
+                    <label for="checkbox6">Субота</label><br>
+                    <label for="checkbox7">Неділя</label><br><br>
+                    <label for="checkbox8">Італійська</label><br>
+                    <label for="checkbox9">Українська</label><br>
+                    <label for="checkbox10">Французька</label><br>
+                    <label for="checkbox11">Японська</label><br><br>
+                    <label for="checkbox12">Салати</label><br>
+                    <label for="checkbox13">Гарячі страви</label><br>
+                    <label for="checkbox14">Десерти</label><br>
+                    <label for="checkbox15">Піца</label><br>
+            </div>
+            <input type='hidden' id='currentPage' />
+            <input type='hidden' id='showPerPage' />
+            <button  id="sortL"> Сортувати за спаданням</button> <br>
+            <button  id="sortH"> Сортувати за зростанням</button>
+            <div class="containerProducts"></div>
+            <div id='pageNavigation'></div>
+        </section>
+        <footer class="footer">
+                <div class="main">
+                    <div class="header for-footer">
+                        <div class="logo">
+                            <img src="images/scientific_research.png" width="50px" height="50px" title="footer logo" alt=""><span class="nameFD">Food Delivery</span>
+                        </div>
+                    </div>
+                </div>
+        </footer>
+        <script src="/javascripts/sort.js"></script>
+        <script src="/javascripts/pagination.js"></script>
+        <script src="/javascripts/data.js"></script>
+        <script src="/javascripts/productsCreateElement.js"></script>
+        <script src="/javascripts/localStorage.js"></script>
+        <script src="/javascripts/productsCart.js"></script>
+        <script src="/javascripts/complex.js"></script>
+        <script src="/javascripts/search.js"></script>
+        <script src="/javascripts/complexInBasket.js"></script>
+        <script src="/javascripts/basketCart.js"></script>
+        <script>
+            function send(){
+                var checkedValue = []; 
+                var inputElements = document.getElementsByClassName('filterCheckbox');
+                
+                for(var i=0; inputElements[i]; ++i){
+                    if(inputElements[i].checked){
+                        checkedValue.push(inputElements[i].value);
+                    }
+                }
+                console.log(checkedValue);
+                console.log(param(checkedValue));
+                url = document.location.href
+                document.location = url.concat(param(checkedValue))
+            }
+            
+            function param(object)
+                {
+                    if (object.length > 0){
+                        res = encodeURI(object);
+                        return `?params=${res}`
+                    } else {
+                        return '';
+                    }
+                }
+        </script>
+    </body>
+</html>
